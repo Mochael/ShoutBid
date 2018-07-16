@@ -3,7 +3,7 @@
 # Some instructions for setting up:
 * First have [Node.js](https://nodejs.org/) installed with its package manager [npm](https://www.npmjs.com/get-npm)
 
-* Run `npm install package.json` to install dependencies correctly.
+* Run `npm install` to install dependencies correctly.
 
 * Then run `npm start` to start the project (script for `npm start` are found in `package.json`, but keep default for now.)
 
