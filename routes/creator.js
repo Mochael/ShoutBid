@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET creator page. */
 router.get('/creator', function(req, res, next) {
   res.render('creator');
 });
