@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+    <% include partials/header %>
     <form action="/" method="post">
-        <input type="radio" name="use" value="Content Creator"> Content Creator <br>
-        <input type="radio" name="use" value="Content Absorber"> Content Absorber <br>
+        <input type="radio" name="userStatus" value="true"> Content Creator <br>
+        <input type="radio" name="userStatus" value="false"> Content Absorber <br>
 
         <label for="first">First Name: </label>
         <input id="first" type="text" name="first"><br>

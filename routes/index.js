@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
   res.render('index');
   // console.log(req.body);
   var newUser = new User({
-      userStatus: false,
+      userStatus: req.body.userStatus,
       email: req.body.email,
       username: req.body.username,
       password: req.body.password,
