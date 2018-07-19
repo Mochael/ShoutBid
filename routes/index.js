@@ -1,39 +1,36 @@
 var express = require('express');
+var User = require('../models/user');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
+  // michael here, err is not defined. so it was giving me another error lmao
+  // if(err){
+  //   console.log(err);
+  //   return res.status(500).send();
+  // }
+  // return res.status(200).send();
 });
 
-module.exports = router;
-
-router.post("/register", function(req, res){
-  var userStatus = req.body.userStatus;
-  var email = req.body.email;
-  var username = req.body.username;
-  var password = req.body.password;
-  var passwordConfirm = req.body.passwordConfirm;
-
-  var newUser = new User();
-  newUser.userStatus = userStatus;
-  newUser.email = email;
-  newUser.username = username;
-  newUser.password = password;
-  newUser.passwordConfirm = passwordConfirm;
-  
-  if(err){
-    console.log(err);
-    return res.status(500).send();
-  }
-  return res.status(200).send();
-
-})
-
-
+router.post('/', function(req, res, next) {
+  res.render('index');
+  // console.log(req.body);
+  var newUser = new User({
+      userStatus: false,
+      email: req.body.email,
+      username: req.body.username,
+      password: req.body.password,
+      passwordConfirm: req.body.passwordConfirm
+  });
+  newUser.save(function(err){
+      if (err) throw err;
+  });
+});
 
 // Unnecessary but I saw this on stackexchange
 //./routes/index.js
 //exports.index = function(req, res){
 //  res.render('index', { title: 'ejs' });};
 
+module.exports = router;

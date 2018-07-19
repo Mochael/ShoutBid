@@ -1,19 +1,27 @@
+<!DOCTYPE html>
 <html>
-    <form action="/FormHandler">
+    <form action="/" method="post">
         <input type="radio" name="use" value="Content Creator"> Content Creator <br>
-        <input type="radio" name="use" value="Content Absorber"> Content Absorber<br>
-        First Name:
-        <input type="text"> <br>
-        Last Name:
-        <input type="text"> <br>
-        Email Address:
-        <input type="text"> <br>
-        Password:
-        <input type="text"> <br>
-        Confirm Password:
-        <input type="text"> <br>
-        
-        <input type="submit">
+        <input type="radio" name="use" value="Content Absorber"> Content Absorber <br>
 
+        <label for="first">First Name: </label>
+        <input id="first" type="text" name="first"><br>
+
+        <label for="email">Last Name: </label>
+        <input id="email" type="text" name="last"><br>
+
+        <label for="email">Email Address: </label>
+        <input id="email" type="text" name="email"><br>
+
+        <label for="usernmae">Username: </label>
+        <input id="username" type="text" name="username"><br>
+
+        <label for="password">Password: </label>
+        <input id="password" type="text" name="password"><br>
+
+        <label for="cpassword">Confirm Password: </label>
+        <input id="cpassword" type="text" name="passwordConfirm"><br>
+
+        <input type="submit">
     </form>
 </html>
