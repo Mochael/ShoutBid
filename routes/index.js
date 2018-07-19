@@ -14,24 +14,26 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  if(req.body.userStatus && req.body.firstName && req.body.lastName && req.body.email && req.body.username && req.body.password && req.body.passwordConfirm){
-  res.render('index');
-  // console.log(req.body);
-  var newUser = new User({
-      userStatus: req.body.userStatus,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      username: req.body.username,
-      password: req.body.password,
-      passwordConfirm: req.body.passwordConfirm
-  });
-  newUser.save(function(err){
-      if (err) throw err;
-      
-  console.log(newUser.find());
-  });
-};
+    // console.log(Object.keys(req.body));
+  // if(req.body.userStatus && req.body.firstName && req.body.lastName && req.body.email && req.body.username && req.body.password && req.body.passwordConfirm){
+      res.render('index');
+      // console.log(req.body);
+      if (Object.keys(req.body).length == 7){
+          var newUser = new User({
+              userStatus: req.body.userStatus,
+              firstName: req.body.firstName,
+              lastName: req.body.lastName,
+              email: req.body.email,
+              username: req.body.username,
+              password: req.body.password,
+              passwordConfirm: req.body.passwordConfirm
+          });
+          newUser.save(function(err){
+              if (err) throw err;
+          // console.log(newUser.find());
+          });
+      }
+  // }
 });
 
 // Unnecessary but I saw this on stackexchange
