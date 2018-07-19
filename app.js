@@ -21,6 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/', creatorRouter);
+//Added by Michael for users
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
@@ -42,3 +44,13 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+//Set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb+srv://mkronovet@gmail.com:Turkey@1515@cluster0-imd86.mongodb.net/test?retryWrites=true';
+mongoose.connect(mongoDB);
+// Get Mongoose to use the global promise library
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
