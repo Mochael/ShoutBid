@@ -1,28 +1,28 @@
 {
-    "pics": [
-        {
-            "id": "david.png",
-            "path": "indexpics/david.png",
-            "name": "david",
-            "msg": "Get a shoutout on David's vlog!"
-        },
-        {
-            "id": "scott.png",
-            "path": "indexpics/scott.png",
-            "name": "scott",
-            "msg": "Have Scotty make a rap about you!"
-        },
-        {
-            "id": "jason.png",
-            "path": "indexpics/jason.png",
-            "name": "jason",
-            "msg": "Help Jason feed his kids!"
-        },
-        {
-            "id": "cody.png",
-            "path": "indexpics/cody.png",
-            "name": "cody",
-            "msg": "Get roasted by Cody and Noel!"
-        }
-    ]
+  "pics": [
+    {
+      "id": "david.png",
+      "path": "indexpics/david.png",
+      "name": "david",
+      "msg": "Get a shoutout on David's vlog!"
+    },
+    {
+      "id": "scott.png",
+      "path": "indexpics/scott.png",
+      "name": "scott",
+      "msg": "Have Scotty make a rap about you!"
+    },
+    {
+      "id": "jason.png",
+      "path": "indexpics/jason.png",
+      "name": "jason",
+      "msg": "Help Jason feed his kids!"
+    },
+    {
+      "id": "cody.png",
+      "path": "indexpics/cody.png",
+      "name": "cody",
+      "msg": "Get roasted by Cody and Noel!"
+    }
+  ]
 }

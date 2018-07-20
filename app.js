@@ -73,20 +73,20 @@ app.use('/', regRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	res.locals.error = req.app.get('env') === 'development' ? err : {};
+	// render the error page
+	res.status(err.status || 500);
+	res.render('error');
 });
 
 /*
-    BY THE WAY anything you put after a module.export line, it will not run
-    so putting the mongodb stuff afterward wont do anything. inside of index.js
-    there is also code (which will be useful in the future) for a registration
-    page for parsing a form body, but it is never run since the route is being
-    exported before it can get to it
+BY THE WAY anything you put after a module.export line, it will not run
+so putting the mongodb stuff afterward wont do anything. inside of index.js
+there is also code (which will be useful in the future) for a registration
+page for parsing a form body, but it is never run since the route is being
+exported before it can get to it
 */
 
 module.exports = app
@@ -96,7 +96,7 @@ function init(){
 	var indexpics = JSON.parse(fs.readFileSync(indexpicspath));
 	fs.readdir('./public/indexpics', function(err, files){
 		createNewData({"pics":[]}, indexpics["pics"], files, function(newData){
-			fs.writeFile(indexpicspath, JSON.stringify(newData, null, 4), function(err){
+			fs.writeFile(indexpicspath, JSON.stringify(newData, null, 2), function(err){
 				if (err) throw err;
 			});
 		}, '"path": "indexpics/~~obj~~"', '"name": "~~obj.split(".")[0]~~"', '"msg": "null"');
