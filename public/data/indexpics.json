@@ -1,0 +1,24 @@
+{
+    "pics": [
+        {
+            "id": "david.png",
+            "path": "indexpics/david.png",
+            "name": "david"
+        },
+        {
+            "id": "scott.png",
+            "path": "indexpics/scott.png",
+            "name": "scott"
+        },
+        {
+            "id": "jason.png",
+            "path": "indexpics/jason.png",
+            "name": "jason"
+        },
+        {
+            "id": "cody.png",
+            "path": "indexpics/cody.png",
+            "name": "cody"
+        }
+    ]
+}
