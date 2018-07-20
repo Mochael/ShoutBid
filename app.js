@@ -20,7 +20,10 @@ var mongoose = require('mongoose');
 const indexpicspath = './public/data/indexpics.json';
 
 const dbname = 'shoutbid';
+//var mongoDB = 'mongodb://MisterManMan:PoopPee123Dee@ds143511.mlab.com:43511/' + dbname;
 var mongoDB = 'mongodb://localhost:27017/' + dbname;
+
+mongoose.connect(mongoDB, {useNewUrlParser: true});
 // 27017 for now, MONGODB should have fix soon
 // ^^this is a very recent error MONGODB put out, normally the port number '27017'
 // would not be in this url. it was like beginning of july i saw this on stack exchange.
