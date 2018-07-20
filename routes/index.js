@@ -4,36 +4,27 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
-  // michael here, err is not defined. so it was giving me another error lmao
-  // if(err){
-  //   console.log(err);
-  //   return res.status(500).send();
-  // }
-  // return res.status(200).send();
+    res.render('index');
 });
 
 router.post('/', function(req, res, next) {
     // console.log(Object.keys(req.body));
-  // if(req.body.userStatus && req.body.firstName && req.body.lastName && req.body.email && req.body.username && req.body.password && req.body.passwordConfirm){
-      res.render('index');
-      // console.log(req.body);
-      if (Object.keys(req.body).length == 7){
-          var newUser = new User({
-              userStatus: req.body.userStatus,
-              firstName: req.body.firstName,
-              lastName: req.body.lastName,
-              email: req.body.email,
-              username: req.body.username,
-              password: req.body.password,
-              passwordConfirm: req.body.passwordConfirm
-          });
-          newUser.save(function(err){
-              if (err) throw err;
-          // console.log(newUser.find());
-          });
-      }
-  // }
+    res.render('index');
+    if (Object.keys(req.body).length == 7){
+        var newUser = new User({
+            userStatus: req.body.userStatus,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password,
+            passwordConfirm: req.body.passwordConfirm
+        });
+        newUser.save(function(err){
+            if (err) throw err;
+            // console.log(newUser.find());
+        });
+    }
 });
 
 // Unnecessary but I saw this on stackexchange
