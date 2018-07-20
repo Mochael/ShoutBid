@@ -99,7 +99,7 @@ function init(){
 			fs.writeFile(indexpicspath, JSON.stringify(newData, null, 4), function(err){
 				if (err) throw err;
 			});
-		}, '"path": "indexpics/~~obj~~"', '"name": "~~obj.split(".")[0]~~"');
+		}, '"path": "indexpics/~~obj~~"', '"name": "~~obj.split(".")[0]~~"', '"msg": "null"');
 	});
 }
 
@@ -108,7 +108,6 @@ function init(){
 function createNewData(format, current, updated, cb, ...pushInfo){
 	let newData = format;
 	let key = Object.keys(newData)[0];
-
 	newData[key] = current;
 	compare(current, updated, function(changes){
 		newData[key].forEach(function(obj, i){
