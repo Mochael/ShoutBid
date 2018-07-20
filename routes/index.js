@@ -1,15 +1,22 @@
 var express = require('express');
+var fs = require('fs');
 var User = require('../models/user');
 var router = express.Router();
 
+const indexpicspath = './public/data/indexpics.json';
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index');
+    res.render('index', {
+        data: JSON.parse(fs.readFileSync(indexpicspath))["pics"]
+    });
 });
 
 router.post('/', function(req, res, next) {
     // console.log(Object.keys(req.body));
-    res.render('index');
+    res.render('index', {
+        data: JSON.parse(fs.readFileSync(indexpicspath))["pics"]
+    });
     if (Object.keys(req.body).length == 7){
         var newUser = new User({
             userStatus: req.body.userStatus,
