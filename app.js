@@ -21,7 +21,7 @@ var mongoose = require('mongoose');
 // thats what im using below
 
 const dbname = 'shoutbid';
-var mongoDB = 'mongodb://MisterManMan:PoopPee123Dee@ds143511.mlab.com:43511/local_library123';
+var mongoDB = 'mongodb://MisterManMan:PoopPee123Dee@ds143511.mlab.com:43511/' + dbname;
 // var mongoDB = 'mongodb://localhost:27017/' + dbname;
 
 mongoose.connect(mongoDB, {useNewUrlParser: true});
