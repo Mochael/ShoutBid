@@ -17,6 +17,8 @@ router.post('/', function(req, res, next) {
   res.render('index', {
     data: JSON.parse(fs.readFileSync(indexpicspath))["pics"]
   });
+  // do we need to check if passwords match here? bc if they dont, they
+  // are already stopped by filledout.js. just some thoughts
   if (Object.keys(req.body).length == 7 && req.body.password == req.body.passwordConfirm){
     var newUser = new User({
       userStatus: req.body.userStatus,
