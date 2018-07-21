@@ -8,9 +8,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    // console.log(Object.keys(req.body));
-    res.render('index');
-    if (Object.keys(req.body).length == 7){
+    if (Object.keys(req.body).length == 7 && req.body.password == req.body.passwordConfirm){
+        res.render('index');
         var newUser = new User({
             userStatus: req.body.userStatus,
             firstName: req.body.firstName,
