@@ -5,8 +5,6 @@ function filledout(){
         for (i = 0; i < form[0].length; i++) {
             // console.log(i, form[0].elements[i].value);
             if (form[0].elements[i].value !== ""){
-                console.log('pissssss');
-                console.log('yea pissss lmao');
                 count++;
                 // if (i==form[0].length - 3)
                 // {
@@ -25,7 +23,17 @@ function filledout(){
         }
     }
     if ((count + 1) == form[0].length){
-      if (form[0].elements[(form[0].length - 3)].value == form[0].elements[(form[0].length - 2)].value) return true;
+        console.log("PUSSYTITS");
+      if (form[0].elements[(form[0].length - 3)].value == form[0].elements[(form[0].length - 2)].value){
+        var password = form[0].elements[(form[0].length - 3)].value;
+        console.log(password);
+        form[0].elements[(form[0].length - 2)].value = "";
+        bcrypt.hash(password, 10, function(err, hash){
+            console.log(hash);
+            if(err){console.log("FUCKERROR");}
+            form[0].elements[(form[0].length - 3)].value = hash; })
+        return false;
+        }
       else document.getElementById('filledout').innerHTML = "passwords dont match"; return false;
     }else document.getElementById('filledout').innerHTML = "fill out the form pussy"; return false;
 
