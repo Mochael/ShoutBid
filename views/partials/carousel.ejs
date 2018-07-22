@@ -2,14 +2,14 @@
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <% data.forEach(function(img, i) { %>
-      <% if(i == 0) var active = ' active'; else var active = ''; %>
+      <% if(i == 0) var active = 'active'; else var active = ''; %>
       <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="<%= active %>"></li>
       <% }); %>
     </ol>
     <div class="carousel-inner">
       <div class="carousel-inner">
         <% data.forEach(function(img, i) { %>
-        <% if(i == 0) var active = ' active'; else var active = ''; %>
+        <% if(i == 0) var active = 'active'; else var active = ''; %>
         <div class="carousel-item<%= active %>" style="opacity: 0.8">
           <img class="d-block w-100" src="<%= img.path %>" alt="<%= img.name %>">
           <div class="carousel-caption d-none d-md-block">
