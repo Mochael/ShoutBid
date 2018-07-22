@@ -79,14 +79,14 @@ function init(){
 	// reading images in indexpics directory
 	fs.readdir('./public/indexpics', function(err, files){
 		// use localdata module to create newData
-		// createNewData(format, current, updated, cb, ...pushData)
+		// updateData(format, current, updated, cb, ...pushData)
 		// format: what format the array of data is in (array name)
 		// current: current data file EXCLUDING array name (which is why format is passed thru)
 		// updated: array of unique identifiers (id's) for new list to be
 		// cb: callback, returns newData
 		// ...pushData: variable parameter to be pushed with ID within newData
 		// use ~~ surrounding evaluated variables. obj is DEFAULT for unique identifier (id)
-		localdata.createNewData({"pics":[]}, indexpics["pics"], files, function(newData){
+		localdata.updateData({"pics":[]}, indexpics["pics"], files, function(newData){
 			// writes file at indexpicspath with newData to be passed when rendering index.ejs
 			fs.writeFile(indexpicspath, JSON.stringify(newData, null, 2), function(err){
 				if (err) throw err;

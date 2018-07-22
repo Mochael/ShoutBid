@@ -1,6 +1,6 @@
 // trying to make this universal, can probably route this instead of putting it into app.js..
 // for now it can stay here
-var createNewData = function createNewData(format, current, updated, cb, ...pushInfo){
+var updateData = function updateData(format, current, updated, cb, ...pushInfo){
   let newData = format;
   let key = Object.keys(newData)[0];
   newData[key] = current;
@@ -48,7 +48,7 @@ var compare = function compare(current, updated, cb){
 }
 
 var localdata = {
-  createNewData: createNewData,
+  updateData: updateData,
   compare: compare
 }
 
