@@ -22,7 +22,6 @@ router.post('/', function(req, res, next) {
   // are already stopped by filledout.js. just some thoughts
   bcrypt.hash(req.body.password, 10, function(err, hash){
     if (err) throw err;
-    var password = hash;
     if (Object.keys(req.body).length == 7 && req.body.password == req.body.passwordConfirm){
       var newUser = new User({
         userStatus: req.body.userStatus,
@@ -30,7 +29,7 @@ router.post('/', function(req, res, next) {
         lastName: req.body.lastName,
         email: req.body.email,
         username: req.body.username,
-        password: password
+        password: hash
       });
       newUser.save(function(err){
         if (err) throw err;
