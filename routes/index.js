@@ -6,6 +6,8 @@ var router = express.Router();
 
 const indexpicspath = './public/data/indexpics.json';
 
+// comment
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
