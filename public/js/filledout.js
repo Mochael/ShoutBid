@@ -23,20 +23,10 @@ function filledout(){
         }
     }
     if ((count + 1) == form[0].length){
-        console.log("PUSSYTITS");
-      if (form[0].elements[(form[0].length - 3)].value == form[0].elements[(form[0].length - 2)].value){
-        var password = form[0].elements[(form[0].length - 3)].value;
-        console.log(password);
-        form[0].elements[(form[0].length - 2)].value = "";
-        bcrypt.hash(password, 10, function(err, hash){
-            console.log(hash);
-            if(err){console.log("FUCKERROR");}
-            form[0].elements[(form[0].length - 3)].value = hash; })
-        return false;
-        }
+      if (form[0].elements[(form[0].length - 3)].value == form[0].elements[(form[0].length - 2)].value) return true;
       else document.getElementById('filledout').innerHTML = "passwords dont match"; return false;
     }else document.getElementById('filledout').innerHTML = "fill out the form pussy"; return false;
 
     // i want to see if we can have the password match thing be live ?? like where
-    // it says if they match or not BEFORE we press the submit button.. 
+    // it says if they match or not BEFORE we press the submit button..
 }

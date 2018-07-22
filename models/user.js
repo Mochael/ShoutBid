@@ -31,10 +31,6 @@ var UserSchema = mongoose.Schema({
         unique: true,
         required: true,
         trim: true
-    },
-    passwordConfirm: {
-        type: String,
-        required: true
     }
 });
 
