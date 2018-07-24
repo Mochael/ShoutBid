@@ -1,6 +1,12 @@
 {
   "pics": [
     {
+      "id": "theboys.jpg",
+      "path": "indexpics/theboys.jpg",
+      "name": "theboys",
+      "msg": "make a bid"
+    },
+    {
       "id": "david.png",
       "path": "indexpics/david.png",
       "name": "david",
