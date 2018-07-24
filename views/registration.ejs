@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <% include partials/header %>
-  <script src="js/filledout.js"></script>
-  <p id="filledout"></p>
-  <form action="/" method="post" onsubmit="return filledout()" class="form">
-    <input type="radio" name="userStatus" value="true" id="cCreator"> Content Creator <br>
-    <input type="radio" name="userStatus" value="false" id="cAbsorber"> Content Absorber <br>
+  <!-- <div class="container"> -->
+    <% include partials/header %>
+    <script src="js/filledout.js"></script>
+    <p id="filledout"></p>
+    <form action="/" method="post" onsubmit="return filledout()" class="form">
+      <div class="form-group">
+        <label class="radio-inline"><input type="radio" name="userStatus" value="true" id="cCreator"> Content Creator </label>
+        <label class="radio-inline"><input type="radio" name="userStatus" value="false" id="cAbsorber"> Content Absorber </label><br>
 
-    <label for="first">First Name: </label>
-    <input id="first" type="text" name="firstName"><br>
+        <label for="first">First Name: </label>
+        <input id="first" type="text" class="form-control" name="firstName" placeholder="First Name"><br>
 
-    <label for="email">Last Name: </label>
-    <input id="last" type="text" name="lastName"><br>
+        <label for="email">Last Name: </label>
+        <input id="last" type="text" class="form-control" name="lastName" placeholder="Last Name"><br>
 
-    <label for="email">Email Address: </label>
-    <input id="email" type="text" name="email"><br>
+        <label for="email">Email Address: </label>
+        <input id="email" type="text" class="form-control" name="email" placeholder="E-mail"><br>
 
-    <label for="username">Username: </label>
-    <input id="username" type="text" name="username"><br>
+        <label for="username">Username: </label>
+        <input id="username" type="text" class="form-control" name="username" placeholder="Username"><br>
 
-    <label for="password">Password: </label>
-    <input id="password" type="password" name="password"><br>
+        <label for="password">Password: </label>
+        <input id="password" type="password" class="form-control" name="password" placeholder="Password"><br>
 
-    <label for="cpassword">Confirm Password: </label>
-    <input id="cpassword" type="password" name="passwordConfirm"><br>
+        <label for="cpassword">Confirm Password: </label>
+        <input id="cpassword" type="password" class="form-control" name="passwordConfirm" placeholder="Confirm Password"><br>
 
-    <input type="submit">
-  </form>
+        <input type="submit">
+      </div>
+    </form>
+  <!-- </div> -->
 </html>
