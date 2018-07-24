@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var fs = require('fs');
+var session = require('express-session');
 
 // local modules
 var localdata = require('./js/localdata');
@@ -12,6 +13,7 @@ var localdata = require('./js/localdata');
 var indexRouter = require('./routes/index');
 var creatorRouter = require('./routes/creator');
 var regRouter = require('./routes/registration');
+var loginRouter = require('./routes/login');
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
@@ -55,10 +57,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// Initializing sessions and cookies Not Sure what this stuff means need to go through express-sessions module
+app.use(session({
+	secret: 'work hard',
+	resave: true,
+	saveUninitialized: false
+}));
+
 // using routers
 app.use('/', indexRouter);
 app.use('/', creatorRouter);
 app.use('/', regRouter);
+app.use('/', loginRouter);
 
 // error handler
 // app.use(function(err, req, res, next) {
