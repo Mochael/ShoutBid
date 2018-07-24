@@ -10,7 +10,7 @@
       <div class="carousel-inner">
         <% data.forEach(function(img, i) { %>
         <% if(i == 0) var active = 'active'; else var active = ''; %>
-        <div class="carousel-item<%= active %>" style="opacity: 0.8">
+        <div class="carousel-item <%= active %>" style="opacity: 0.8">
           <img class="d-block w-100" src="<%= img.path %>" alt="<%= img.name %>">
           <div class="carousel-caption d-none d-md-block">
             <a class="creator"><button type="button" class="btn btn-primary btn-lg" style="border-color:black;"><div>MAKE A BID</div></button></a>
