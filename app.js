@@ -7,7 +7,7 @@ var fs = require('fs');
 var session = require('express-session');
 
 // local modules
-var localdata = require('./js/localdata');
+var localdata = require('./src/localdata');
 
 // page routing
 var indexRouter = require('./routes/index');
