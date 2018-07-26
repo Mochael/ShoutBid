@@ -1,5 +1,23 @@
-// trying to make this universal, can probably route this instead of putting it into app.js..
-// for now it can stay here
+/*
+  use localdata module to create newData
+  
+  updateData(format, current, updated, cb, ...pushData)
+    format: what format the array of data is in (array name)
+    current: current data file EXCLUDING array name (which is why format is passed thru)
+    updated: array of unique identifiers (id's) for new list to be
+    cb: callback, returns newData
+    ...pushData: variable parameter to be pushed with ID within newData
+      use ~~ surrounding evaluated variables. obj is DEFAULT for unique identifier (id)
+*/
+
+/*
+  updateData updates local, public data (MOST likely within public/data/ folder)
+  from folders pertaining such data. this data is not to be stored in mongodb,
+  but mainly local / main-page stuff. things like logos, icons, and other
+  information like homepage messages, "about us" text, etc. can all be updated
+  with this function.
+*/
+
 var updateData = function updateData(format, current, updated, cb, ...pushInfo){
   let newData = format;
   let key = Object.keys(newData)[0];
@@ -26,9 +44,14 @@ var updateData = function updateData(format, current, updated, cb, ...pushInfo){
   cb(newData);
 }
 
-// ONLY WORKS WITH DATA THAT HAVE 'ID' AND IS COMPARING TO LIST OF NEW 'ID''S
-// can change to be even MORE universal with big data, where 2 datasets are just compared
-// and uobj and cobj are compared as uobj.id and cobj.id
+/*
+  ONLY WORKS WITH DATA THAT HAVE 'ID' AND IS COMPARING TO LIST OF NEW 'ID''S
+
+  can change to be even MORE universal with big data (but doubtful since this
+  was made specifically for local data). 2 datasets are just compared
+  and uobj and cobj are compared as uobj.id and cobj.id
+*/
+
 var compare = function compare(current, updated, cb){
   let changes = {"exists":[], "add":[], "remove":[]};
   updated.forEach(function(uobj, i){ // updated obj
