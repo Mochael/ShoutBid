@@ -57,7 +57,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 // Initializing sessions and cookies Not Sure what this stuff means need to go through express-sessions module
 app.use(session({
 	secret: 'work hard',
@@ -81,22 +80,29 @@ app.use('/', loginRouter);
 // 	res.render('error');
 // });
 
+// ^^^^^^^^^^^ you were right michael this will be proven to be better later on
+// here, if an error occurs in our actual site, we can say the following:
+// res.render('error') WHERE we have a page called error.ejs
+// and the html in it can just say something like "oops, something went wrong!" yaknow
+
 module.exports = app
 
 // put whatever in this function to run on startup to initialize new shit
 function init(){
+
 	// file to indexpics directory DATA
 	var indexpics = JSON.parse(fs.readFileSync(indexpicspath));
 	// reading images in indexpics directory
 	fs.readdir('./public/indexpics', function(err, files){
-		// use localdata module to create newData
-		// updateData(format, current, updated, cb, ...pushData)
-		// format: what format the array of data is in (array name)
-		// current: current data file EXCLUDING array name (which is why format is passed thru)
-		// updated: array of unique identifiers (id's) for new list to be
-		// cb: callback, returns newData
-		// ...pushData: variable parameter to be pushed with ID within newData
-		// use ~~ surrounding evaluated variables. obj is DEFAULT for unique identifier (id)
+
+		localdata.compare(indexpics["pics"], files, function(changes){
+			console.log(changes);
+		});
+		// ^^^^^^^^^^^^^^^^^
+		// this doesnt have to be here, but i just want to log it to show u guys exactly how
+		// this function is thinking. if you add / remove items from public/indexpics/, it will
+		// show here on what it is updating
+
 		localdata.updateData({"pics":[]}, indexpics["pics"], files, function(newData){
 			// writes file at indexpicspath with newData to be passed when rendering index.ejs
 			fs.writeFile(indexpicspath, JSON.stringify(newData, null, 2), function(err){
@@ -104,4 +110,6 @@ function init(){
 			});
 		}, '"path": "indexpics/~~obj~~"', '"name": "~~obj.split(".")[0]~~"', '"msg": "null"');
 	});
+	// add more to be initialized here:
+
 }
