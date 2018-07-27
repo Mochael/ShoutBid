@@ -41,6 +41,21 @@ router.post('/', function(req, res, next) {
   });
 });
 
+router.get("/", function(req, res, next){
+  res.render('index', {
+    data: JSON.parse(fs.readFileSync(indexpicspath))["pics"]
+  });
+  User.findOne({username: username}, function(err, user){
+  if (err) throw err;
+  else if (!user) console.log("No user found");
+  else{
+    bcrypt.compare(password, user.password, function(err,res){
+      if (res) return true;
+    });
+    }
+  });
+});
+
 // Unnecessary but I saw this on stackexchange
 //./routes/index.js
 //exports.index = function(req, res){

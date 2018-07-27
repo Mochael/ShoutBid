@@ -1,0 +1,15 @@
+- For each user if they are a content creator, store their page information in database (such as their profile image, description, etc.)
+- Store the creator's ongoing bids as objects
+    * Each bid contains: 
+        @ creator id
+        @ current pot
+        @ time remaining
+        @ description of event
+        @ user who made the last bet (and their profile image)
+        @ user who made the largest bet
+        @ instructions for type of auction (highest bid is winner, lottery, dutch auction, auction based off popularity etc.)
+
+
+
+Interesting Applications:
+- people like AWEme and building channels could post on our platform and ask users to say which project to make next and highest bid gets their project made
