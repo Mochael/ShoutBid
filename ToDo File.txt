@@ -1,6 +1,11 @@
+- store logged in info into cookies
+- access cookies within each route
+- pass thru info whether they are logged in or not
+  - SO that different pages/screens/whatnot can be displayed btwn different users.
+
 - For each user if they are a content creator, store their page information in database (such as their profile image, description, etc.)
 - Store the creator's ongoing bids as objects
-    * Each bid contains: 
+    * Each bid contains:
         @ creator id
         @ current pot
         @ time remaining
