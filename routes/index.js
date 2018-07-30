@@ -50,7 +50,10 @@ router.get("/", function(req, res, next){
   else if (!user) console.log("No user found");
   else{
     bcrypt.compare(password, user.password, function(err,res){
-      if (res) return true;
+      if (res) {
+        console.log("Found user");
+        return true;
+      }
     });
     }
   });
