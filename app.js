@@ -2,73 +2,99 @@
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var logger = require('morgan');
 var fs = require('fs');
 var session = require('express-session');
+var flash = require('connect-flash');
+var passport = require('passport');
+var expressValidator = require('express-validator');
+var LocalStrategy = require('passport-local').Strategy;
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/shoutbid');
+var db = mongoose.connection;
+
+// page routing
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
 // local modules
 var localdata = require('./src/localdata');
-
-// page routing
-var indexRouter = require('./routes/index');
-var creatorRouter = require('./routes/creator');
-var regRouter = require('./routes/registration');
-var loginRouter = require('./routes/login');
-
 //Set up mongoose connection
-var mongoose = require('mongoose');
 // download community server from:
 // https://www.mongodb.com/download-center#community
 
+// Init App
+var app = express();
+
+
 // some constants
 const indexpicspath = './public/data/indexpics.json';
-const dbname = 'shoutbid';
 
-var mongoDB = 'mongodb://localhost:27017/' + dbname;
+//var mongoDB = 'mongodb://localhost:27017/' + dbname;
 // 27017 for now, MONGODB should have fix soon
 // ^^this is a very recent error MONGODB put out, normally the port number '27017'
 // would not be in this url. it was like beginning of july i saw this on stack exchange.
-mongoose.connect(mongoDB, {useNewUrlParser: true});
 
-// Get Mongoose to use the global promise library
-mongoose.Promise = global.Promise;
-var db = mongoose.connection;
-
-// check for DB errors
-db.on('error', function(err){
-	console.log(err);
-});
-// check DB connection
-db.once('open', function(){
-	console.log('Connected to MongoDB (' + dbname + ').');
-});
-
-// init function.. add anything you want to be initialized on startup
-init();
-
-var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+//app.engine('ejs', exphbs({defaultLayout:'ejs'}));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// BodyParser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Initializing sessions and cookies Not Sure what this stuff means need to go through express-sessions module
+// Express Session
 app.use(session({
-	secret: 'work hard',
-	resave: true,
-	saveUninitialized: false
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
 }));
 
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
+
+// Connect Flash
+app.use(flash());
+
+// Global Vars
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+});
+
 // using routers
-app.use('/', indexRouter);
-app.use('/', creatorRouter);
-app.use('/', regRouter);
-app.use('/', loginRouter);
+app.use('/', routes);
+app.use('/users', users);
 
 // error handler
 // app.use(function(err, req, res, next) {
@@ -85,7 +111,14 @@ app.use('/', loginRouter);
 // res.render('error') WHERE we have a page called error.ejs
 // and the html in it can just say something like "oops, something went wrong!" yaknow
 
-module.exports = app
+// Set Port
+app.set('port', (process.env.PORT || 4000));
+
+app.listen(app.get('port'), function(){
+	console.log('Server started on port '+app.get('port'));
+});
+
+init();
 
 // put whatever in this function to run on startup to initialize new shit
 function init(){
@@ -113,3 +146,4 @@ function init(){
 	// add more to be initialized here:
 
 }
+module.exports = app;
