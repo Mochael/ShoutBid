@@ -13,7 +13,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/shoutbid', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/shoutbid', { useNewUrlParser: true });
 var db = mongoose.connection;
 
 // page routing
@@ -112,7 +112,7 @@ app.use('/', users);
 // and the html in it can just say something like "oops, something went wrong!" yaknow
 
 // Set Port
-app.set('port', (process.env.PORT || 4000));
+app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function(){
 	console.log('Server started on port '+app.get('port'));
