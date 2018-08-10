@@ -1,9 +1,10 @@
 {
   "name": "shoutbid",
   "version": "0.0.0",
+  "main": "app.js",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www -i ./public/data"
+    "start": "nodemon ./app.js -i ./public/data"
   },
   "dependencies": {
     "bcrypt": "^3.0.0",
@@ -19,6 +20,7 @@
     "morgan": "~1.9.0",
     "nodemon": "^1.18.2",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "validator": "^10.5.0"
   }
 }

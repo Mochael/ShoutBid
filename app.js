@@ -13,7 +13,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/shoutbid');
+mongoose.connect('mongodb://localhost/shoutbid', { useNewUrlParser: true });
 var db = mongoose.connection;
 
 // page routing
@@ -94,7 +94,7 @@ app.use(function (req, res, next) {
 
 // using routers
 app.use('/', routes);
-app.use('/users', users);
+app.use('/', users);
 
 // error handler
 // app.use(function(err, req, res, next) {

@@ -7,7 +7,7 @@ var User = require('../models/user');
 // GET for register
 
 router.get('/register', function(req, res, next){
-    res.render('register', {
+    res.render('registration', {
   
       // we can change this later so it checks cookies
     });
@@ -44,7 +44,7 @@ router.post('/register', function (req, res) {
       var errors = req.validationErrors();
   
       if (errors) {
-          res.render('register', {
+          res.render('registration', {
               errors: errors
           });
       }
@@ -114,7 +114,6 @@ router.post('/register', function (req, res) {
   router.post('/login',
       passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
       function (req, res) {
-      res.redirect('/');
       res.render('index', {data: JSON.parse(fs.readFileSync(indexpicspath))["pics"]});
       });
   
