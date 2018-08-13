@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/header %>
+  <div class="container">
+    <form action="/" method="post" onsubmit="return startingwar()" class="form">
+      <div class="form-group">
+        <label for="bidType">Please select one of the following: </label><br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary">
+            <input type="radio" name="bidType" id="British"> British Auction
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="bidType" id="Dutch"> Dutch Auction
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="bidType" id="Blind"> Blind Auction
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="bidType" id="Michael"> Michael Auction
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="bidType" id="Arpad"> Arpad Auction
+          </label>
+        </div><br><br>
+
+        <label for="description">Auction Description: </label>
+        <input id="description" type="text"placeholder="Description"><br>
+
+        <label for="time">Time Limit (Hours): </label>
+        <input id="last" type="number" min="1" max="144" placeholder="Time"><br>
+
+        <button type="submit" class="btn btn-success">Start Auction</button>
+      </div>
+    </form>
+  </div>
+</html>
