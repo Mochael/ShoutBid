@@ -4,21 +4,16 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var bcrypt = require('bcrypt');
+var fs = require('fs');
 
 // GET for register
 
 router.get('/register', function(req, res, next){
-  res.render('registration', {
-
-    // we can change this later so it checks cookies
-  });
+  res.render('registration');
 });
 
 router.get('/login', function(req, res, next){
-  res.render('login', {
-
-    // we can change this later so it checks cookies
-  });
+  res.render('login');
 });
 
 router.post('/register', function (req, res) {
@@ -84,7 +79,7 @@ router.post('/register', function (req, res) {
   }
 });
 
-passport.use(new LocalStrategy( function (username, password, done) {
+passport.use(new LocalStrategy(function (username, password, done) {
   User.getUserByUsername(username, function (err, user) {
     if (err) throw err;
     if (!user) {
@@ -122,9 +117,7 @@ function (req, res) {
 
 router.get('/logout', function (req, res) {
   req.logout();
-
   req.flash('success_msg', 'You are logged out');
-
   res.redirect('/login');
 });
 
