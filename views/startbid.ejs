@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="stylesheets/description.css">
   <% include partials/header %>
   <div class="container">
-    <form action="/" method="post" onsubmit="return startingwar()" class="form">
+    <form action="/bidwar" method="post" class="form">
       <div class="form-group">
         <label for="bidType">Please select one of the following: </label><br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -25,10 +24,10 @@
         </div><br><br>
 
         <label for="description">Auction Description: </label>
-        <input class="descriptionBox" id="description" type="text" placeholder="Description"><br>
+        <textarea class="form-control" rows="5" id="description" placeholder="Description"></textarea>
 
         <label for="time">Time Limit (Hours): </label>
-        <input id="last" type="number" min="1" max="144" placeholder="Time"><br>
+        <input class="form-control" id="last" type="number" min="1" max="144" placeholder="Time"><br>
 
         <button type="submit" class="btn btn-success">Start Auction</button>
       </div>

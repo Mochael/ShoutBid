@@ -24,6 +24,9 @@ router.get('/startbid', function(req, res){
 	res.render('startbid', {user : req.user});
 });
 
+router.post('/bidwar', function(req, res){
+	res.render('bidwar');
+});
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
