@@ -9,7 +9,7 @@
         <label for="userStatus">Please select one of the following: </label><br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary">
-            <input type="radio" name="userStatus" id="cCreator" value="true"> Content Creator
+            <input type="radio" name="userStatus" id="cCreator" value="true" required> Content Creator
           </label>
           <label class="btn btn-secondary">
             <input type="radio" name="userStatus" id="cAbsorber" value="false"> Content Absorber
@@ -17,22 +17,22 @@
         </div><br><br>
 
         <label for="first">First Name: </label>
-        <input id="first" type="text" class="form-control" name="firstName" placeholder="First Name"><br>
+        <input id="first" type="text" class="form-control" name="firstName" placeholder="First Name" required><br>
 
         <label for="email">Last Name: </label>
-        <input id="last" type="text" class="form-control" name="lastName" placeholder="Last Name"><br>
+        <input id="last" type="text" class="form-control" name="lastName" placeholder="Last Name" required><br>
 
         <label for="email">Email Address: </label>
-        <input id="email" type="text" class="form-control" name="email" placeholder="E-mail"><br>
+        <input id="email" type="email" class="form-control" name="email" placeholder="E-mail" required><br>
 
         <label for="username">Username: </label>
-        <input id="username" type="text" class="form-control" name="username" placeholder="Username"><br>
+        <input id="username" type="text" class="form-control" name="username" placeholder="Username" required><br>
 
         <label for="password">Password: </label>
-        <input id="password" type="password" class="form-control" name="password" placeholder="Password"><br>
+        <input id="password" type="password" class="form-control" name="password" placeholder="Password" required><br>
 
         <label for="cpassword">Confirm Password: </label>
-        <input id="cpassword" type="password" class="form-control" name="passwordConfirm" placeholder="Confirm Password"><br>
+        <input id="cpassword" type="password" class="form-control" name="passwordConfirm" placeholder="Confirm Password" required><br>
 
         <button type="submit" class="btn btn-success">Register</button>
       </div>
