@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var bcrypt = require('bcrypt');
 
 var UserSchema = mongoose.Schema({
     //If they are content creator or absorber

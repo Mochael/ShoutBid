@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
+var bcrypt = require('bcrypt');
 
 // GET for register
 
@@ -72,6 +73,7 @@ router.post('/register', function (req, res) {
                       });
                       User.createUser(newUser, function (err, user) {
                           if (err) throw err;
+                          console.log("PUSWSSSYVDWYSVDYV");
                           console.log(user);
                       });
                req.flash('success_msg', 'You are registered and can now login');
@@ -93,6 +95,8 @@ router.post('/register', function (req, res) {
               User.comparePassword(password, user.password, function (err, isMatch) {
                   if (err) throw err;
                   if (isMatch) {
+                        console.log("Balls to the wall");
+                        console.log(user.username);
                       return done(null, user);
                   } else {
                       return done(null, false, { message: 'Invalid password' });
