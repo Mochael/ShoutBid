@@ -16,7 +16,7 @@ router.get('/login', function(req, res, next){
   res.render('login');
 });
 
-router.post('/register', function (req, res) {
+router.post('/', function (req, res) {
   var userStatus = req.body.userStatus;
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;
@@ -64,7 +64,7 @@ router.post('/register', function (req, res) {
             lastName: req.body.lastName,
             email: req.body.email,
             username: req.body.username,
-            password: hash
+            password: req.body.password
           });
           User.createUser(newUser, function (err, user) {
             if (err) throw err;
@@ -72,7 +72,7 @@ router.post('/register', function (req, res) {
             console.log(user);
           });
           req.flash('success_msg', 'You are registered and can now login');
-          res.redirect('/login');
+          res.redirect('/');
         }
       });
     });
