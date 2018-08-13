@@ -12,6 +12,9 @@
 <nav class="navbar navbar-light" style="border-color: black; background-color: #3399ff">
   <a class="navbar-brand" href="/"> <img src="logo.png" alt="Shoutbid" height="30"> </a>
   <% if (user){%>
+    <% if (user.userStatus){%>
+      <a href="/startbid" class="navbar-brand"><button class="btn btn-secondary my-2 my-sm-0"><b>Start Bid</b></button></a>
+      <% } %>
     <a href="/logout" class="navbar-brand"><button class="btn btn-secondary my-2 my-sm-0"><b>Log-Out</b></button></a>
   <%  } else { %>
     <a href="/register" class="navbar-brand"><button class="btn btn-secondary my-2 my-sm-0"><b>Register</b></button></a>

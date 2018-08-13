@@ -20,6 +20,11 @@ router.get('/', function(req, res){
   });
 });
 
+router.get('/startbid', function(req, res){
+	res.render('startbid', {user : req.user});
+});
+
+
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
