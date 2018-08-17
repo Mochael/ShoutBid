@@ -1,5 +1,11 @@
 # ShoutBid
 
+# Some features to put in:
+- Follow feature for stars so you can be notified about bids
+- Embed top bid information on front page carousel
+- make an about page
+- set up bidding page
+
 # Some instructions for setting up (i think only aidan is left):
 * First have [Node.js](https://nodejs.org/) installed with its package manager [npm](https://www.npmjs.com/get-npm)
 
