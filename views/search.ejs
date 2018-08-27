@@ -2,7 +2,11 @@
 <html lang="en" dir="ltr">
   <% include partials/header %>
   <ul>
-    <%- creators %>
+    <% for(creator in creators) { %>
+        <li>
+            <%- creators[creator].firstName + " " + creators[creator].lastName%>
+        </li>
+    <%} %>
   
   </ul>
   
