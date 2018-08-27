@@ -41,6 +41,11 @@ router.post('/search', function(req, res){
 	res.redirect('/search');
 });
 
+
+router.get('/profile', function(req, res){
+	res.redirect('/profile');
+});
+
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
@@ -52,6 +57,10 @@ function ensureAuthenticated(req, res, next){
 
 router.get('/creator', function(req, res){
 	res.render('creator');
+});
+
+router.get('/bidwar', function(req, res){
+	res.render('bidwar');
 });
 
 module.exports = router;

@@ -11,6 +11,7 @@
 <nav class="navbar navbar-light" style="border-color: black; background-color: #3399ff">
   <a class="navbar-brand" href="/"> <img src="logo.png" alt="Shoutbid" height="30"> </a>
   <% if (user){%>
+    <a href="/profile" class="navbar-brand"><button class="btn btn-secondary my-2 my-sm-0"><b>Profile</b></button></a>
     <% if (user.userStatus){%>
       <a href="/startbid" class="navbar-brand"><button class="btn btn-secondary my-2 my-sm-0"><b>Start Bid</b></button></a>
       <% } %>

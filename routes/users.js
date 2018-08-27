@@ -6,10 +6,6 @@ var User = require('../models/user');
 var bcrypt = require('bcrypt');
 var fs = require('fs');
 
-//Creates list of creators
-User.findByStatus(true, function(err, creators) {
-  console.log(creators);
-});
 
 // GET for register
 

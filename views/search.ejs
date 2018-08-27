@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <% include partials/header %>
+  <div class="form-group">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary">
+            <input type="radio" name="searchCategory" id="Trending" required> Content Creator
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="searchCategory" id="Popular"> Content Absorber
+          </label>
+          <label class="btn btn-secondary">
+                <input type="radio" name="searchCategory" id="Recommended" > Content Absorber
+          </label>
+          <label class="btn btn-secondary">
+                <input type="radio" name="searchCategory" id="Subscribed"> Content Absorber
+          </label>
+        </div>
   <ul>
     <% for(creator in creators) { %>
         <li>
