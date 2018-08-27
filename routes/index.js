@@ -43,7 +43,7 @@ router.post('/search', function(req, res){
 
 
 router.get('/profile', function(req, res){
-	res.redirect('/profile');
+	res.render('profile');
 });
 
 function ensureAuthenticated(req, res, next){
