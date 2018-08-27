@@ -1,6 +1,9 @@
 var mongoose = require("mongoose");
 var bcrypt = require('bcrypt');
 
+
+// Should we create a new model for creators?
+// Where do we store Popularity, money, ongoing bids, etc?
 var UserSchema = mongoose.Schema({
     //If they are content creator or absorber
     userStatus: {
@@ -34,6 +37,11 @@ var UserSchema = mongoose.Schema({
         trim: true
     }
 });
+
+UserSchema.statics.findByStatus = function(status, func) {
+    return this.find({ userStatus: status}, func);
+  };
+
 
 var User = module.exports = mongoose.model("User", UserSchema);
 

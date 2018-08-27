@@ -28,6 +28,19 @@ router.post('/bidwar', function(req, res){
 	res.render('bidwar');
 });
 
+
+router.get('/search', function(req, res){
+	//Creates list of creators
+	User.findByStatus(true, function(err, creators) {
+		res.render('search', {creators: creators});
+		console.log(creators);
+	});
+});
+
+router.post('/search', function(req, res){
+	res.redirect('/search');
+});
+
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
@@ -36,5 +49,9 @@ function ensureAuthenticated(req, res, next){
 		res.redirect('/login');
 	}
 }
+
+router.get('/creator', function(req, res){
+	res.render('creator');
+});
 
 module.exports = router;
