@@ -40,7 +40,11 @@ var UserSchema = mongoose.Schema({
 
 UserSchema.statics.findByStatus = function(status, func) {
     return this.find({ userStatus: status}, func);
-  };
+  }
+
+UserSchema.statics.findUserByUsername = function(username, func){
+	return this.findOne({username: username},func);
+}
 
 
 var User = module.exports = mongoose.model("User", UserSchema);

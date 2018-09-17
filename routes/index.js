@@ -30,15 +30,30 @@ router.post('/bidwar', function(req, res){
 
 
 router.get('/search', function(req, res){
-	//Creates list of creators
 	User.findByStatus(true, function(err, creators) {
-		res.render('search', {creators: creators});
-		console.log(creators);
+		res.render('search',{person: null, creators: creators});
 	});
 });
 
+
+
+
 router.post('/search', function(req, res){
-	res.redirect('/search');
+	User.findByStatus(true, function(err, creators) {
+		User.findUserByUsername(req.body.search, function(err, person){
+			User.findOne({ username: {"$regex": "^" + req.body.search + "\\b", "$options": "i"
+			  }}, function (err, user) {
+				  	if (user) {
+						console.log(user);
+						return res.render('search', {person: req.body.search, creators: null});
+					}
+					else{
+						console.log("chitty chitty bang bang");
+						return res.render('search', {person: null, creators: creators});
+					}
+		});
+	});
+});
 });
 
 

@@ -17,11 +17,20 @@
           </label>
         </div>
   <ul>
-    <% for(creator in creators) { %>
-        <li>
+    <% if(person==null) { %>
+      <li>
+          No person found
+      </li>
+      <% for(creator in creators) { %>
+         <li>
             <%- creators[creator].firstName + " " + creators[creator].lastName%>
-        </li>
-    <%} %>
+         </li>
+      <%} %>
+  <% } else { %>
+      <li>
+        <%- person %>
+      </li>
+  <% } %>
   
   </ul>
   
